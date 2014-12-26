@@ -1,6 +1,6 @@
 FROM     debian:wheezy
 
-RUN echo "deb http://mirrors.163.com/debian unstable main contrib non-free" > /etc/apt/sources.list.d/unstable.list 
+RUN echo "deb http://mirrors.163.com/debian unstable main contrib non-free" > /etc/apt/sources.list.d/unstable.list \
   &&  apt-get -y update \
   &&  apt-get -y install software-properties-common \
   &&  add-apt-repository -y ppa:chris-lea/node.js \
