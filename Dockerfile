@@ -1,6 +1,6 @@
 FROM     debian:wheezy
 
-ADD ./sources.list  /etc/apt/sources.list
+ADD ./souces.list  /etc/apt/sources.list
 #RUN echo "deb http://mirrors.163.com/debian unstable main contrib non-free" > /etc/apt/sources.list.d/unstable.list \
 RUM   apt-get -y update \
   &&  apt-get -y install software-properties-common \
