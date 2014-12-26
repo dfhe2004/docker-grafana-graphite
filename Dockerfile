@@ -1,7 +1,8 @@
 FROM     debian:wheezy
 
-RUN echo "deb http://mirrors.163.com/debian unstable main contrib non-free" > /etc/apt/sources.list.d/unstable.list \
-  &&  apt-get -y update \
+ADD ./sources.list  /etc/apt/sources.list
+#RUN echo "deb http://mirrors.163.com/debian unstable main contrib non-free" > /etc/apt/sources.list.d/unstable.list \
+RUM   apt-get -y update \
   &&  apt-get -y install software-properties-common \
   &&  add-apt-repository -y ppa:chris-lea/node.js \
   &&  apt-get -y install python-django-tagging python-simplejson python-memcache python-ldap python-cairo python-pysqlite2 python-support \
