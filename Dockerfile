@@ -12,7 +12,7 @@ RUN echo "deb http://mirrors.163.com/debian unstable main contrib non-free" > /e
 
 
 # Install Elasticsearch
-RUN     cd ~ && wget https://download.elasticsearch.org/elasticsearch/elasticsearch/elasticsearch-1.3.2.deb
+RUN     cd ~ && curl -s https://download.elasticsearch.org/elasticsearch/elasticsearch/elasticsearch-1.3.2.deb
 RUN     cd ~ && dpkg -i elasticsearch-1.3.2.deb && rm elasticsearch-1.3.2.deb
 
 # Install Whisper, Carbon and Graphite-Web
