@@ -1,18 +1,16 @@
-FROM     ubuntu:14.04
-RUN      apt-get -y update
-RUN      apt-get -y upgrade
+FROM     debian:wheezy
+
+RUN echo "deb http://mirrors.163.com/debian unstable main contrib non-free" > /etc/apt/sources.list.d/unstable.list \
+  &&  apt-get -y update \
+  &&  apt-get -y install software-properties-common \
+  &&  add-apt-repository -y ppa:chris-lea/node.js \
+  &&  apt-get -y install python-django-tagging python-simplejson python-memcache python-ldap python-cairo python-pysqlite2 python-support \
+                           python-pip gunicorn supervisor nginx-light nodejs git wget curl openjdk-7-jre build-essential python-dev \
+
+  &&  && rm -rf /var/lib/apt/lists/* 
+#RUN      apt-get -y upgrade
 
 
-# ---------------- #
-#   Installation   #
-# ---------------- #
-
-# Install all prerequisites
-RUN     apt-get -y install software-properties-common
-RUN     add-apt-repository -y ppa:chris-lea/node.js
-RUN     apt-get -y update
-RUN     apt-get -y install python-django-tagging python-simplejson python-memcache python-ldap python-cairo python-pysqlite2 python-support \
-                           python-pip gunicorn supervisor nginx-light nodejs git wget curl openjdk-7-jre build-essential python-dev
 
 # Install Elasticsearch
 RUN     cd ~ && wget https://download.elasticsearch.org/elasticsearch/elasticsearch/elasticsearch-1.3.2.deb
